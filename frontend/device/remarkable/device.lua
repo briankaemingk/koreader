@@ -36,7 +36,9 @@ local mt_width = 1403 -- unscaled_size_check: ignore
 local mt_height = 1871 -- unscaled_size_check: ignore
 local mt_scale_x = screen_width / mt_width
 local mt_scale_y = screen_height / mt_height
+local TimeVal = require('ui/timeval')
 local adjustTouchEvt = function(self, ev)
+    ev.time = TimeVal:now()
     if ev.type == EV_ABS then
         -- Mirror X and scale up both X & Y as touch input is different res from
         -- display
